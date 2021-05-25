@@ -51,7 +51,6 @@ export default function CalendarDay({
       onClick={handleClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onTouchEnd={handleClick}
       style={{ height }}
     >
       {dayOfMonth === 1 && (
