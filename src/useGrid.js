@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect, useEffect, useReducer } from 'react'
+import { useRef, useEffect, useReducer } from 'react'
 
 import {
   addMonths,
@@ -99,7 +99,7 @@ export default function useGrid({ locale, month: currentMonth, onMonthChange, tr
   const [state, dispatch] = useReducer(reducer, createInitialState(currentMonth, locale))
   const { startDate, endDate, cellHeight, lastCurrentMonth, offset, origin, transition, isWide } = state
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const notDragging = !initialDragPositionRef.current
 
     if (!isSameMonth(lastCurrentMonth, currentMonth) && notDragging) {
@@ -119,7 +119,7 @@ export default function useGrid({ locale, month: currentMonth, onMonthChange, tr
     }
   }, [currentMonth]) // eslint-disable-line react-hooks/exhaustive-deps
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!touchDragEnabled) {
       return
     }
